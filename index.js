@@ -1,0 +1,24 @@
+const http = require('http');
+
+// app object - module scaffolding 
+const app = {};
+
+// configuration 
+app.config = {
+    port: 3000
+};
+
+// create server 
+app.createServer = () => {
+    const server = http.createServer(app.handleServer);
+    server.listen(app.config.port, ()=>{
+        console.log(`Listening to port ${app.config.port}`)
+    })
+    
+}
+
+// handle server 
+app.handleServer = (req, res) => {
+    res.end('Hello world!');
+}
+app.createServer()
